@@ -24,7 +24,6 @@ acc = 100
 def f(r):
     return G * M / r**2 - G * m / (R - r)**2 - w**2 * r
 
-
 #Choosing initial guesses
 r1 = 1e7
 r2 = 2e7
@@ -42,11 +41,9 @@ while np.fabs(r2 - r1) > acc:
 print("The distance to Lagrange point L1 is: {:.3e}m".format(r3))
 print("Number of iterations required: {}\n".format(guess_no))
 
-
 #Re-defining the function to be plotted, with relevant x- and y-values
 def g(r):
     return G * M / r**2 - G * m / (R - r)**2
-
 
 x = np.linspace(E_r, Dist, 300)
 y = g(x)
@@ -61,7 +58,5 @@ plt.title('Gravitational Field Strength as a Function of Distance')
 plt.xlabel('Distance [m]')
 plt.ylabel('Gravitational Field Strength [ms^-2]')
 
-print("The field strength at the surface of the Earth is: {:.3}ms^-2".format(
-    g(E_r)))
-print("The field strength at the surface of the Moon is: {:.3}ms^-2".format(
-    abs(g(Dist))))
+print("The field strength at the surface of the Earth is: {:.3}ms^-2".format(g(E_r)))
+print("The field strength at the surface of the Moon is: {:.3}ms^-2".format(abs(g(Dist))))
